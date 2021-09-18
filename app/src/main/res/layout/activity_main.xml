@@ -48,7 +48,7 @@
 
         <!-- BUTTON 1-->
         <Button
-            android:id="@+id/btnShuffle1"
+            android:id="@+id/btnShuffle0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -57,7 +57,7 @@
 
         <!-- BUTTON 2-->
         <Button
-            android:id="@+id/btnShuffle2"
+            android:id="@+id/btnShuffle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -66,7 +66,7 @@
 
         <!-- BUTTON 3-->
         <Button
-            android:id="@+id/btnShuffle3"
+            android:id="@+id/btnShuffle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -83,7 +83,7 @@
 
         <!-- BUTTON 4-->
         <Button
-            android:id="@+id/btnShuffle4"
+            android:id="@+id/btnShuffle3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -92,7 +92,7 @@
 
         <!-- BUTTON 5-->
         <Button
-            android:id="@+id/btnShuffle5"
+            android:id="@+id/btnShuffle4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
 
         <!-- BUTTON 6-->
         <Button
-            android:id="@+id/btnShuffle6"
+            android:id="@+id/btnShuffle5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -169,12 +169,6 @@
         android:textSize="50dp"
         android:textColor="@color/black"
         android:gravity="center"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/txtTemp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="TextView" />
 
 </LinearLayout>

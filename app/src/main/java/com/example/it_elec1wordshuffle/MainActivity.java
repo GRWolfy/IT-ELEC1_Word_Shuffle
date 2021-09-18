@@ -16,32 +16,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn[0] = findViewById(R.id.btnShuffle1);
-        btn[1] = findViewById(R.id.btnShuffle2);
-        btn[2] = findViewById(R.id.btnShuffle3);
-        btn[3] = findViewById(R.id.btnShuffle4);
-        btn[4] = findViewById(R.id.btnShuffle5);
-        btn[5] = findViewById(R.id.btnShuffle6);
+        btnShuffle[0] = findViewById(R.id.btnShuffle0);
+        btnShuffle[1] = findViewById(R.id.btnShuffle1);
+        btnShuffle[2] = findViewById(R.id.btnShuffle2);
+        btnShuffle[3] = findViewById(R.id.btnShuffle3);
+        btnShuffle[4] = findViewById(R.id.btnShuffle4);
+        btnShuffle[5] = findViewById(R.id.btnShuffle5);
         btnPlay = findViewById(R.id.btnPlay);
         getWordtoGuess = (EditText) findViewById(R.id.editText_wordToGuess);
         testing = findViewById(R.id.lblTESTING);
 
-        btn[0].setOnClickListener(this);
-        btn[1].setOnClickListener(this);
-        btn[2].setOnClickListener(this);
-        btn[3].setOnClickListener(this);
-        btn[4].setOnClickListener(this);
-        btn[5].setOnClickListener(this);
+        btnShuffle[0].setOnClickListener(this);
+        btnShuffle[1].setOnClickListener(this);
+        btnShuffle[2].setOnClickListener(this);
+        btnShuffle[3].setOnClickListener(this);
+        btnShuffle[4].setOnClickListener(this);
+        btnShuffle[5].setOnClickListener(this);
         btnPlay.setOnClickListener(this);
     }
 
     //Declarations
-    static Button[] btn = new Button[6];
+    static Button[] btnShuffle = new Button[6];
     Button[] life = new Button[5];
     Button btnPlay;
     EditText getWordtoGuess;
-    TextView testing;
+    static TextView testing;
     Random rand = new Random();
+    static final int MAX_SIZE = 6;
 
     @Override
     public void onClick(View view) {
@@ -54,18 +55,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public static boolean lengthChecker(String[] array){
-        return array.length == 6;
+        return array.length == MAX_SIZE;
     }
 
     public static void shuffleString(Random rand, String str){
         char[] convert = str.toCharArray();
 
-        for(int i = 0; i < convert.length; i++){
-            int j = rand.nextInt(convert.length);
+        for(int i = 0; i < MAX_SIZE; i++){
+            int j = rand.nextInt(MAX_SIZE);
             char temp = convert[i];
             convert[i] = convert[j];
             convert[j] = temp;
-            btn[i].setText(convert[i]);
+        }
+        str = new String(convert);
+        testing.setText(str);
+        String[] newStr = str.split("");
+
+        for(int i = 0; i < MAX_SIZE; i++){
+            btnShuffle[i].setText(newStr[i+1]);
         }
     }
 }
