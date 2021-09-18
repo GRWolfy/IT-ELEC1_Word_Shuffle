@@ -40,15 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] btn;
     Button[] life;
     EditText getWordtoGuess;
-    static TextView testing;
+    TextView testing;
 
-    public static void main(String[] args) {
-        testing.setText("WOLF");
-    }
+
 
     @Override
     public void onClick(View view) {
-
+        testing.setText("WOLF");
     }
 
     public static boolean lengthChecker(String[] array){
