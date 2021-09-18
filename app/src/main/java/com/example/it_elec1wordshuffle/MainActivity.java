@@ -30,23 +30,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn[3].setOnClickListener(this);
         btn[4].setOnClickListener(this);
         btn[5].setOnClickListener(this);
-        btn[6].setOnClickListener(this);
 
         getWordtoGuess = findViewById(R.id.editText_wordToGuess);
         testing = findViewById(R.id.lblTESTING);
     }
 
     //Declarations
-    Button[] btn;
-    Button[] life;
+    Button[] btn = new Button[6];
+    //Button[] life;
     EditText getWordtoGuess;
     TextView testing;
-
-
+    //String str = getWordtoGuess.getText().toString();
 
     @Override
     public void onClick(View view) {
-        testing.setText("WOLF");
+        testing.setText(getWordtoGuess.getText());
     }
 
     public static boolean lengthChecker(String[] array){
