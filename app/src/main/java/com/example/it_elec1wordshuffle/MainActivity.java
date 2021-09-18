@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn[3] = findViewById(R.id.btnShuffle4);
         btn[4] = findViewById(R.id.btnShuffle5);
         btn[5] = findViewById(R.id.btnShuffle6);
+        btnPlay = findViewById(R.id.btnPlay);
+        getWordtoGuess = (EditText) findViewById(R.id.editText_wordToGuess);
+        testing = findViewById(R.id.lblTESTING);
 
         btn[0].setOnClickListener(this);
         btn[1].setOnClickListener(this);
@@ -30,28 +32,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn[3].setOnClickListener(this);
         btn[4].setOnClickListener(this);
         btn[5].setOnClickListener(this);
-
-        getWordtoGuess = findViewById(R.id.editText_wordToGuess);
-        testing = findViewById(R.id.lblTESTING);
+        btnPlay.setOnClickListener(this);
     }
 
     //Declarations
-    Button[] btn = new Button[6];
-    //Button[] life;
+    static Button[] btn = new Button[6];
+    Button[] life = new Button[5];
+    Button btnPlay;
     EditText getWordtoGuess;
     TextView testing;
-    //String str = getWordtoGuess.getText().toString();
+    Random rand = new Random();
 
     @Override
     public void onClick(View view) {
-        testing.setText(getWordtoGuess.getText());
+        String str = getWordtoGuess.getText().toString();
+
+        if(view.getId() == R.id.btnPlay){
+            testing.setText(str);
+            shuffleString(rand, str);
+        }
     }
 
     public static boolean lengthChecker(String[] array){
         return array.length == 6;
     }
 
-    public static String shuffleString(Random rand, String str){
+    public static void shuffleString(Random rand, String str){
         char[] convert = str.toCharArray();
 
         for(int i = 0; i < convert.length; i++){
@@ -59,8 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             char temp = convert[i];
             convert[i] = convert[j];
             convert[j] = temp;
+            btn[i].setText(convert[i]);
         }
-
-        return new String(convert);
     }
 }
