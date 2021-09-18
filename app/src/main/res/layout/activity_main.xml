@@ -22,7 +22,7 @@
             android:text="Word to shuffle" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/editText_wordToGuess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,10 +31,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnPlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Play" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
 
         <!-- BUTTON 1-->
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnShuffle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -54,7 +54,7 @@
 
         <!-- BUTTON 2-->
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnShuffle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -63,7 +63,7 @@
 
         <!-- BUTTON 3-->
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/btnShuffle3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -80,7 +80,7 @@
 
         <!-- BUTTON 4-->
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnShuffle4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,7 +89,7 @@
 
         <!-- BUTTON 5-->
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnShuffle5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -98,7 +98,7 @@
 
         <!-- BUTTON 6-->
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnShuffle6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -108,7 +108,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editText_StringInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -116,7 +116,7 @@
         android:text="Name" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_Life"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
@@ -129,31 +129,31 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/btnLife1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/btnLife2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/btnLife3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/btnLife4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/btnLife5"
             android:layout_width="68dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
