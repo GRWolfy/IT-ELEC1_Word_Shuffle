@@ -49,16 +49,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         String str = getWordtoGuess.getText().toString();
+        String[] newStr = str.split("");
+        int len = newStr.length;
 
         if(view.getId() == R.id.btnPlay){
-            if(lengthChecker(str)){
+            //if(len == MAX_SIZE){
                 testing.setText(str);
                 shuffleString(rand, str);
-            }
+            /*}
             else{
                 //ERROR MESSAGE
                 testing.setText("Input word that must be 6 letters");
-            }
+            }*/
         }
         else if(view.getId() == R.id.btnShuffle0){
             answer += btnShuffle[0].getText().toString();
