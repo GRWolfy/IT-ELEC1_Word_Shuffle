@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlay = findViewById(R.id.btnPlay);
         getWordtoGuess = (EditText) findViewById(R.id.editText_wordToGuess);
         testing = findViewById(R.id.lblTESTING);
-
+        lblAnswer = findViewById(R.id.lblAnswer);
         btnShuffle[0].setOnClickListener(this);
         btnShuffle[1].setOnClickListener(this);
         btnShuffle[2].setOnClickListener(this);
@@ -40,22 +40,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] life = new Button[5];
     Button btnPlay;
     EditText getWordtoGuess;
+    TextView lblAnswer;
     static TextView testing;
     Random rand = new Random();
     static final int MAX_SIZE = 6;
+    static String answer = "";
 
     @Override
     public void onClick(View view) {
         String str = getWordtoGuess.getText().toString();
 
         if(view.getId() == R.id.btnPlay){
-            testing.setText(str);
-            shuffleString(rand, str);
+            if(lengthChecker(str)){
+                testing.setText(str);
+                shuffleString(rand, str);
+            }
+            else{
+                //ERROR MESSAGE
+                testing.setText("Input word that must be 6 letters");
+            }
         }
+        else if(view.getId() == R.id.btnShuffle0){
+            answer += btnShuffle[0].getText().toString();
+        }
+        else if(view.getId() == R.id.btnShuffle1){
+            answer += btnShuffle[1].getText().toString();
+        }
+        else if(view.getId() == R.id.btnShuffle2){
+            answer += btnShuffle[2].getText().toString();
+        }
+        else if(view.getId() == R.id.btnShuffle3){
+            answer += btnShuffle[3].getText().toString();
+        }
+        else if(view.getId() == R.id.btnShuffle4){
+            answer += btnShuffle[4].getText().toString();
+        }
+        else if(view.getId() == R.id.btnShuffle5){
+            answer += btnShuffle[5].getText().toString();
+        }
+
+        lblAnswer.setText(answer);
     }
 
-    public static boolean lengthChecker(String[] array){
-        return array.length == MAX_SIZE;
+    public static boolean lengthChecker(String str){
+        String[] newStr = str.split("");
+        return newStr.length == MAX_SIZE;
     }
 
     public static void shuffleString(Random rand, String str){
