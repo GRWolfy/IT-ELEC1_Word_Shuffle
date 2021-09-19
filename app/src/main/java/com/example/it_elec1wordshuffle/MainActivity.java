@@ -45,13 +45,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] btnShuffle = new Button[6];
     Button[] btnLife = new Button[5];
     Button btnPlay;
-    int play = 0;
     EditText getWordtoGuess;
-     TextView lblAnswer;
-     TextView testing;
+    TextView lblAnswer;
+    TextView testing;
     Random rand = new Random();
-    static final int MAX_SIZE = 6;
-    static String answer = "";
+    int play = 0;
+    final int MAX_SIZE = 6;
+    String answer = "";
+    StringBuilder sb = new StringBuilder(answer);
+    boolean[] checkLife = new boolean[5];
 
     @Override
     public void onClick(View view) {
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 play = 1;
                 shuffleString(rand, str);
                 resetLifeBar();
+                answer = "";
+
                 for(int i = 0; i < MAX_SIZE; i++){
                     btnShuffle[i].setEnabled(true);
                 }
@@ -141,19 +145,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void EachCheck(String answer, String str, int index){
         int len = answer.length();
-        StringBuilder stringBuilder = new StringBuilder(str);
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] newStr = str.split("");
 
-        for(int i = len; i < MAX_SIZE; i++){
-            stringBuilder.deleteCharAt(len);
+        for(int i = newStr.length-1; i > len-1; i--){
+            newStr[i] = "";
         }
 
-        isWinner();
-        btnShuffle[index].setEnabled(false);
+        for(String s : newStr){
+            stringBuilder.append(s);
+        }
+
+        str = stringBuilder.toString();
+
+        if(answer.equals(str)){
+            btnShuffle[index].setEnabled(false);
+        }
+        else {
+            testing.setText("DI PAREHAS "+str);
+        }
     }
 
     private void resetLifeBar(){
         for(int i = 0; i < 5; i++){
             btnLife[i].setBackgroundResource(R.color.black);
+            checkLife[i] = true;
         }
     }
 }
