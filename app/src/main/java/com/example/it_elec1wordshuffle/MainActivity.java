@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else{
             life--;
-            input = 0;
+            input = 1;
             txtLife.setText(String.valueOf(life));
             updateLife(life);
         }
@@ -150,8 +150,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkInput(){
         if(input == 6){
             isWinner(answer, strInput);
-        }
-        else if(life == 0){
             answer = "";
         }
         else{
