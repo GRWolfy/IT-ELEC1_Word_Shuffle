@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
+
         btnShuffle[0] = findViewById(R.id.btnShuffle0);
         btnShuffle[1] = findViewById(R.id.btnShuffle1);
         btnShuffle[2] = findViewById(R.id.btnShuffle2);
@@ -132,9 +134,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void resetLifeBar(){
         for(int i = 0; i < 5; i++){
-            btnLife[i].setBackgroundResource(R.color.black);
+            btnLife[i].setBackgroundColor(getResources().getColor(R.color.black));
             checkLife[i] = true;
         }
+        btnLife[1].setBackgroundColor(getResources().getColor(R.color.white));
     }
 
     private void playerLife(){

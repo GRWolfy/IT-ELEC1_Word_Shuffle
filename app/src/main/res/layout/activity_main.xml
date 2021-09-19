@@ -8,6 +8,15 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/lblTESTING"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="50dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:text="Word to shuffle" />
 
         <EditText
@@ -29,13 +39,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:textSize="20dp"
             android:textColor="@color/black"
             android:inputType="textPassword" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnPlay"
-        android:layout_width="match_parent"
+        android:layout_width="285dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:text="Play" />
 
@@ -52,8 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:layout_weight="1" />
 
         <!-- BUTTON 2-->
         <Button
@@ -61,8 +72,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:layout_weight="1" />
 
         <!-- BUTTON 3-->
         <Button
@@ -70,8 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,8 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:text="Button" />
+            android:layout_margin="5dp" />
 
         <!-- BUTTON 5-->
         <Button
@@ -96,24 +104,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:text="Button" />
+            android:layout_margin="5dp" />
 
         <!-- BUTTON 6-->
+
         <Button
             android:id="@+id/btnShuffle5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:text="Button" />
+            android:layout_margin="5dp" />
 
     </LinearLayout>
 
     <EditText
         android:id="@+id/txtAnswer"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="68dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -122,10 +129,39 @@
         android:textSize="50dp" />
 
     <TextView
-        android:id="@+id/textView_Life"
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:text="Life" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtLife"
+            android:layout_width="181dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="5"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/textView_Life"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="/5"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -136,42 +172,42 @@
 
         <Button
             android:id="@+id/btnLife1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_marginTop="27dp"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnLife2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/btnLife3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnLife4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnLife5"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
             android:layout_weight="1" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/lblTESTING"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="50dp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:text="TextView" />
 
 </LinearLayout>
