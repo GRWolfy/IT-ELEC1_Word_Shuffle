@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWordtoGuess = (EditText) findViewById(R.id.editText_wordToGuess);
         testing = findViewById(R.id.lblTESTING);
         txtAnswer = findViewById(R.id.txtAnswer);
+        txtLife = findViewById(R.id.txtLife);
 
         btnShuffle[0].setOnClickListener(this);
         btnShuffle[1].setOnClickListener(this);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] btnShuffle = new Button[6];
     Button[] btnLife = new Button[5];
     Button btnPlay;
+    TextView txtLife;
     EditText getWordtoGuess;
     EditText txtAnswer;
     TextView testing;
@@ -54,11 +56,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int play = 0;
     final int MAX_SIZE = 6;
     String answer = "";
-    boolean[] checkLife = new boolean[5];
+    String strInput = "";
+    int life = 5;
+    int input = 0;
 
     @Override
     public void onClick(View view) {
         String str = getWordtoGuess.getText().toString();
+        strInput = str;
 
         if(view.getId() == R.id.btnPlay){
             if(lengthChecker()){
@@ -66,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 shuffleString(rand, str);
                 resetLifeBar();
                 answer = "";
+                life = 5;
+                input = 0;
 
                 for(int i = 0; i < MAX_SIZE; i++){
                     btnShuffle[i].setEnabled(true);
@@ -95,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             answer += btnShuffle[5].getText().toString();
         }
 
-        isWinner(answer, str);
+        checkInput();
         txtAnswer.setText(answer);
     }
 
@@ -126,21 +133,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void isWinner(String answer, String str){
+    private void isWinner(String answer, String str) {
         if(answer.equals(str)){
-            testing.setText("CONGRATULATIONS!");
+            testing.setText("CONGRATS");
+        }
+        else{
+            life--;
+            input = 0;
+            txtLife.setText(String.valueOf(life));
+            updateLife(life);
+        }
+    }
+
+    private void checkInput(){
+        if(input == 6){
+            isWinner(answer, strInput);
+        }
+        else if(life == 0){
+            answer = "";
+        }
+        else{
+            input++;
         }
     }
 
     private void resetLifeBar(){
         for(int i = 0; i < 5; i++){
             btnLife[i].setBackgroundColor(getResources().getColor(R.color.black));
-            checkLife[i] = true;
         }
-        btnLife[1].setBackgroundColor(getResources().getColor(R.color.white));
     }
 
-    private void playerLife(){
-
+    private void updateLife(int life){
+        btnLife[life].setBackgroundColor(getResources().getColor(R.color.white));
     }
 }
