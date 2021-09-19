@@ -110,16 +110,16 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lblAnswer"
+    <EditText
+        android:id="@+id/txtAnswer"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
-        android:textSize="50dp"
         android:gravity="center"
-        android:textColor="@color/black"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="Name"
+        android:textColor="@color/black"
+        android:textSize="50dp" />
 
     <TextView
         android:id="@+id/textView_Life"

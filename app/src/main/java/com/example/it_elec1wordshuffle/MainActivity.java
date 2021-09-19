@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnPlay = findViewById(R.id.btnPlay);
         getWordtoGuess = (EditText) findViewById(R.id.editText_wordToGuess);
         testing = findViewById(R.id.lblTESTING);
-        lblAnswer = findViewById(R.id.lblAnswer);
+        txtAnswer = findViewById(R.id.txtAnswer);
 
         btnShuffle[0].setOnClickListener(this);
         btnShuffle[1].setOnClickListener(this);
@@ -46,13 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button[] btnLife = new Button[5];
     Button btnPlay;
     EditText getWordtoGuess;
-    TextView lblAnswer;
+    EditText txtAnswer;
     TextView testing;
     Random rand = new Random();
     int play = 0;
     final int MAX_SIZE = 6;
     String answer = "";
-    StringBuilder sb = new StringBuilder(answer);
     boolean[] checkLife = new boolean[5];
 
     @Override
@@ -77,30 +76,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(view.getId() == R.id.btnShuffle0 && play == 1){
             answer += btnShuffle[0].getText().toString();
-            EachCheck(answer, str , 0);
         }
         else if(view.getId() == R.id.btnShuffle1 && play == 1){
             answer += btnShuffle[1].getText().toString();
-            EachCheck(answer, str , 1);
         }
         else if(view.getId() == R.id.btnShuffle2 && play == 1){
             answer += btnShuffle[2].getText().toString();
-            EachCheck(answer, str , 2);
         }
         else if(view.getId() == R.id.btnShuffle3 && play == 1){
             answer += btnShuffle[3].getText().toString();
-            EachCheck(answer, str , 3);
         }
         else if(view.getId() == R.id.btnShuffle4 && play == 1){
             answer += btnShuffle[4].getText().toString();
-            EachCheck(answer, str , 4);
         }
         else if(view.getId() == R.id.btnShuffle5 && play == 1){
             answer += btnShuffle[5].getText().toString();
-            EachCheck(answer, str , 5);
         }
 
-        lblAnswer.setText(answer);
+        isWinner(answer, str);
+        txtAnswer.setText(answer);
     }
 
     //Method for checking if the string length is equal to 6 and if not will prompt a
@@ -130,39 +124,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void playerLife(){
-
-    }
-
-    private void isWinner(){
-        String getWord = getWordtoGuess.getText().toString();
-        String getAnswer = lblAnswer.getText().toString();
-
-        if(getAnswer.equals(getWord)){
-            testing.setText("CONGRATULATIONS!");
-        }
-    }
-
-    private void EachCheck(String answer, String str, int index){
-        int len = answer.length();
-        StringBuilder stringBuilder = new StringBuilder();
-        String[] newStr = str.split("");
-
-        for(int i = newStr.length-1; i > len-1; i--){
-            newStr[i] = "";
-        }
-
-        for(String s : newStr){
-            stringBuilder.append(s);
-        }
-
-        str = stringBuilder.toString();
-
+    private void isWinner(String answer, String str){
         if(answer.equals(str)){
-            btnShuffle[index].setEnabled(false);
-        }
-        else {
-            testing.setText("DI PAREHAS "+str);
+            testing.setText("CONGRATULATIONS!");
         }
     }
 
@@ -171,5 +135,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             btnLife[i].setBackgroundResource(R.color.black);
             checkLife[i] = true;
         }
+    }
+
+    private void playerLife(){
+
     }
 }
