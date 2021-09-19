@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 answer = "";
                 life = 5;
                 input = 0;
+                txtLife.setText(String.valueOf(life));
+                testing.setText("");
 
                 for(int i = 0; i < MAX_SIZE; i++){
                     btnShuffle[i].setEnabled(true);
