@@ -111,13 +111,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Method for checking if the string length is equal to 6 and if not will prompt a
     //warning to alert the user to correct his/her input
     private boolean lengthChecker(){
-        String[] newStr = getWordtoGuess.getText().toString().split("");
-        return newStr.length == MAX_SIZE+1;
+        String newStr = getWordtoGuess.getText().toString().trim();
+        return newStr.length() == MAX_SIZE;
     }
 
     //Method for shuffling the input string
     //Random rand will generate a number with range of 0 to input string length (0, 6)
-    //The logic of this method is just like Insertion sort but instead of sorting, its shuffle
+    //The logic of this method is like Insertion sort but instead of sorting, its shuffle
     private void shuffleString(Random rand, String str){
         char[] convert = str.toCharArray();
 
@@ -127,11 +127,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             convert[i] = convert[j];
             convert[j] = temp;
         }
-        str = new String(convert);
+        str = new String(convert).trim();
         String[] newStr = str.split("");
 
         for(int i = 0; i < MAX_SIZE; i++){
-            btnShuffle[i].setText(newStr[i+1]);
+            //btnShuffle[i].setText(str.charAt(i));
+            btnShuffle[i].setText(newStr[i]);
         }
     }
 
@@ -144,6 +145,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             input = 1;
             txtLife.setText(String.valueOf(life));
             updateLife(life);
+
+            if(life == 0){
+                testing.setText("GAME OVER");
+            }
         }
     }
 
