@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             else{
                 //ERROR MESSAGE
-                testing.setText("Input word that must be 6 letters");
+                testing.setText("Input word must be 6 letters");
             }
         }
         else if(view.getId() == R.id.btnShuffle0 && play == 1){
