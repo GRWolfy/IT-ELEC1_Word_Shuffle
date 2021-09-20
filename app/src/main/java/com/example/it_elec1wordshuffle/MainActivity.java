@@ -128,11 +128,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             convert[j] = temp;
         }
         str = new String(convert).trim();
-        String[] newStr = str.split("");
 
         for(int i = 0; i < MAX_SIZE; i++){
-            //btnShuffle[i].setText(str.charAt(i));
-            btnShuffle[i].setText(newStr[i]);
+            btnShuffle[i].setText(String.valueOf(str.charAt(i)));
         }
     }
 
