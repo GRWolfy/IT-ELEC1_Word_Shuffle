@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         btnShuffle[0] = findViewById(R.id.btnShuffle0);
         btnShuffle[1] = findViewById(R.id.btnShuffle1);
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String strInput = "";
     int life = 5;
     int input = 0;
+    int repeater = 0;
 
     @Override
     public void onClick(View view) {
@@ -75,10 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 input = 0;
                 txtLife.setText(String.valueOf(life));
                 testing.setText("");
-
-                for(int i = 0; i < MAX_SIZE; i++){
-                    btnShuffle[i].setEnabled(true);
-                }
             }
             else{
                 //ERROR MESSAGE
@@ -87,21 +84,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(view.getId() == R.id.btnShuffle0 && play == 1){
             answer += btnShuffle[0].getText().toString();
+            btnShuffle[0].setEnabled(false);
         }
         else if(view.getId() == R.id.btnShuffle1 && play == 1){
             answer += btnShuffle[1].getText().toString();
+            btnShuffle[1].setEnabled(false);
         }
         else if(view.getId() == R.id.btnShuffle2 && play == 1){
             answer += btnShuffle[2].getText().toString();
+            btnShuffle[2].setEnabled(false);
         }
         else if(view.getId() == R.id.btnShuffle3 && play == 1){
             answer += btnShuffle[3].getText().toString();
+            btnShuffle[3].setEnabled(false);
         }
         else if(view.getId() == R.id.btnShuffle4 && play == 1){
             answer += btnShuffle[4].getText().toString();
+            btnShuffle[4].setEnabled(false);
         }
         else if(view.getId() == R.id.btnShuffle5 && play == 1){
             answer += btnShuffle[5].getText().toString();
+            btnShuffle[5].setEnabled(false);
         }
 
         checkInput();
@@ -142,10 +145,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             life--;
             input = 1;
             txtLife.setText(String.valueOf(life));
+            //resetButtons();
             updateLife(life);
 
             if(life == 0){
                 testing.setText("GAME OVER");
+                play = 0;
             }
         }
     }
@@ -154,9 +159,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(input == 6){
             isWinner(answer, strInput);
             answer = "";
+            resetButtons();
         }
         else{
             input++;
+
+        }
+    }
+
+    private void resetButtons(){
+        for(int i = 0; i < MAX_SIZE; i++){
+            btnShuffle[i].setEnabled(true);
         }
     }
 
