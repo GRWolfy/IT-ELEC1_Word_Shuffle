@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String strInput = "";
     int life = 5;
     int input = 0;
-    int repeater = 0;
 
     @Override
     public void onClick(View view) {
@@ -138,18 +137,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void isWinner(String answer, String str) {
-        if(answer.equals(str)){
+        if(answer.equals(str) && !str.equals("")){
             testing.setText("CONGRATS");
+            resetButtonText();
+            play = 0;
         }
-        else{
+        else if(play == 1){
             life--;
             input = 1;
             txtLife.setText(String.valueOf(life));
-            //resetButtons();
             updateLife(life);
 
             if(life == 0){
                 testing.setText("GAME OVER");
+                resetButtonText();
                 play = 0;
             }
         }
@@ -161,9 +162,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             answer = "";
             resetButtons();
         }
-        else{
+        else if(input < 6 && !strInput.equals("")){
             input++;
+        }
+    }
 
+    private void resetButtonText(){
+        for(int i = 0; i < MAX_SIZE; i++){
+            btnShuffle[i].setText(" ");
         }
     }
 

@@ -124,7 +124,6 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Name"
         android:textColor="@color/black"
         android:textSize="50dp" />
 
